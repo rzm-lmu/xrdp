@@ -404,7 +404,8 @@ xrdp_wm_show_edits(struct xrdp_wm *self, struct xrdp_bitmap *combo)
 
                 /* edit */
                 b = xrdp_bitmap_create(globals->ls_input_width, DEFAULT_EDIT_H, self->screen->bpp,
-                                       WND_TYPE_EDIT, self);
+                                       g_strncasecmp(name, "username", 255) == 0 ? WND_TYPE_LABEL : WND_TYPE_EDIT,
+				       self);
                 list_insert_item(self->login_window->child_list, insert_index,
                                  (long)b);
                 insert_index++;
